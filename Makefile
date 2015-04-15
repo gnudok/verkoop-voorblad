@@ -2,6 +2,7 @@ export PATH:=/sbin:/usr/sbin:${PATH}
 
 view:
 	mkdir -p dist
+	./spec.sh
 	pdflatex --output-directory dist voorblad.tex; xpdf dist/voorblad.pdf
 
 prepare:
