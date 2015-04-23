@@ -1,0 +1,54 @@
+%%=====================================================================================
+%%
+%%       Filename:  voorblad.tex
+%%
+%%    Description:  
+%%
+%%        Version:  1.0
+%%        Created:  15-04-15
+%%       Revision:  none
+%%
+%%         Author:  YOUR NAME (), 
+%%   Organization:  
+%%      Copyright:  
+%%
+%%          Notes:  
+%%                
+%%=====================================================================================
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage{extsizes}
+\usepackage[dutch]{babel}
+\usepackage{amsthm}
+\usepackage{eurosym}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\DeclareGraphicsExtensions{.png,.jpg}
+\usepackage{float}
+
+\begin{document}
+%\renewcommand{\familydefault}{\sfdefault}
+\input{spec}
+%\sffamily
+\begin{center}
+	\begin{tabular}{ p{8cm}| p{8cm} }
+		\multicolumn{2}{c}{\Huge\bf{\textsc{\hostname{}}}} \\
+	\multicolumn{2}{c}{\Large\bf{Debian Wheezy \debianversion}}\\
+	\multicolumn{2}{l}{\Large{\cpumodel{}}}  \\
+	\multicolumn{2}{l}{\Large{\graphics{}}}  \\
+	\hline
+	\Large{Disk grootte} & \Large{\disksize{} GB}  \\
+	\Large{Werkgeheugen} & \Large{\memsize{} MB} \\
+	CPU Snelheid & \cpuspeed{} Mhz \\
+	64-Bit & \bitssixtyfour{} \\
+	Aantal Cores & \corecount{} \\
+	Hyperthreading & \hyperthreading{} \\
+	Kernel versie & \kernelversion{} \\
+	Wireless Interface & \wireless \\
+	%Brander & DVD Brander & \\
+	Grafisch Versneld & \accelerated{} \\
+	\hline
+\end{tabular}
+\end{center}
+\end{document}

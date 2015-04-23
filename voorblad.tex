@@ -22,26 +22,50 @@
 \usepackage{eurosym}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=0.5in]{geometry}
-\input{spec}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\DeclareGraphicsExtensions{.png,.jpg}
+\usepackage{float}
+
 \begin{document}
+%\renewcommand{\familydefault}{\sfdefault}
+\input{spec}
+%\sffamily
 \centerline{\today}
 \vskip 0.5cm
 \begin{center}
-\begin{tabular}{ |r| r| l| }
-	\multicolumn{3}{c}{\Huge{Debian Wheezy \debianversion}}\\
+	\begin{tabular}{ |p{6cm}| p{6cm}| l| }
+	\multicolumn{3}{c}{\includegraphics[width=0.2\textwidth]{swirl}} \\
+	\multicolumn{3}{c}{\Huge\bf{Debian Wheezy \debianversion}}\\
+	\multicolumn{3}{c}{\LARGE{GNU/Linux}}\\
+	\multicolumn{3}{c}{\bf Geconfigureerd als DHCP-client}\\
 	\hline
-	Pentium IV & \cpuspeed{} & MHz \\
+	Processor & \multicolumn{2}{l|}{\cpumodel{}}  \\
+	CPU Snelheid & \cpuspeed{} & MHz \\
 	64-Bit & \bitssixtyfour{} & \\
 	Aantal Cores & \corecount{} & \\
 	Hyperthreading & \hyperthreading{} & \\
+	Kernel versie & \kernelversion{} & \\
 	Disk grootte & \disksize{} & GB \\
 	Werkgeheugen & \memsize{} & MB \\
-	Grafisch Versneld & \accelerated{} & \\
 	Wireless Interface & \wireless & \\
 	%Brander & DVD Brander & \\
-	Kernel versie & \kernelversion{} & \\
-	Prijs		& \price{} & EURO \\
+	Graphische kaart & \multicolumn{2}{l|}{\graphics{}}  \\
+	Grafisch Versneld & \accelerated{} & \\
 	\hline
+	{\bf Prijs}		& \euro{}{\price{}} &  \\
+	\hline
+	\multicolumn{3}{|c|}{(voor alleen de computer, zonder toebehoren)}\\
+	\hline
+	\hline
+	\textbf{Rol} & \textbf{Login} & \textbf{Wachtwoord} \\
+	\hline
+	Gebruiker    & tux            & tux \\
+	Beheerder    & root					  & root \\
+	\hline
+	\multicolumn{3}{c}{Er wordt noch telefonische ondersteuning noch garantie gegeven bij deze computer.}\\
+	\multicolumn{3}{c}{Meer info op: \textbf{\texttt{http://www.juttersdok.nl/gnu}}}\\
+
 \end{tabular}
 \end{center}
 \end{document}

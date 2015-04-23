@@ -11,6 +11,9 @@ BURNER="CD"
 HOSTNAME=$(hostname)
 DEBIAN_VERSION=$(cat /etc/debian_version)
 KERNEL_VERSION=$(uname -r)
+CPUMODEL=$(grep "model name" /proc/cpuinfo |sort -u|cut -d: -f2)
+GRAPHICS=$(lspci|grep -i vga|cut -d: -f3)
+
 
 PPRICE=$(echo scale=2 \; \($CPUSPEED/3000\) \* 17|bc)
 WIDTHPRICE=$(if [ $BITS64 = "Ja" ]; then echo scale=2 \; 0.5 \* $PPRICE|bc; else echo 0; fi)
@@ -37,6 +40,9 @@ cat > spec.tex <<EOF
 \newcommand{\kernelversion}{$KERNEL_VERSION}
 \newcommand{\accelerated}{$ACCELLERATED}
 \newcommand{\hyperthreading}{$HYPERTHREADING}
+\newcommand{\cpumodel}{$CPUMODEL}
+\newcommand{\graphics}{$GRAPHICS}
+\newcommand{\hostname}{$HOSTNAME}
 EOF
 
 #echo $PPRICE

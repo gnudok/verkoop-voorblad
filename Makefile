@@ -5,6 +5,11 @@ view:
 	./spec.sh
 	pdflatex --output-directory dist voorblad.tex; xpdf dist/voorblad.pdf
 
+label:
+	mkdir -p dist
+	./spec.sh
+	pdflatex --output-directory dist label.tex; xpdf dist/label.pdf
+
 prepare:
 	sudo apt-get install texlive texlive-latex-extra xpdf 
 
