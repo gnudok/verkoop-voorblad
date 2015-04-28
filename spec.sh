@@ -11,8 +11,8 @@ BURNER="CD"
 HOSTNAME=$(hostname)
 DEBIAN_VERSION=$(cat /etc/debian_version)
 KERNEL_VERSION=$(uname -r)
-CPUMODEL=$(grep "model name" /proc/cpuinfo |sort -u|cut -d: -f2)
-GRAPHICS=$(lspci|grep -i vga|cut -d: -f3)
+CPUMODEL=$(grep "model name" /proc/cpuinfo |sort -u|cut -d: -f2|cut -d' ' -f2-)
+GRAPHICS=$(lspci|grep -i vga|cut -d: -f3|cut -d'(' -f1|cut -d' ' -f2-)
 
 
 PPRICE=$(echo scale=2 \; \($CPUSPEED/3000\) \* 17|bc)
