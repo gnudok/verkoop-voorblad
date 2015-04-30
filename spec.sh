@@ -13,6 +13,11 @@ DEBIAN_VERSION=$(cat /etc/debian_version)
 KERNEL_VERSION=$(uname -r)
 CPUMODEL=$(grep "model name" /proc/cpuinfo |sort -u|cut -d: -f2|cut -d' ' -f2-)
 GRAPHICS=$(lspci|grep -i vga|cut -d: -f3|cut -d'(' -f1|cut -d' ' -f2-)
+if [[ "$DEBIAN_VERSION" =~ ^8.* ]]; then
+	DEBIAN_CODE="Jessie";
+else
+	DEBIAN_CODE="Wheezy";
+fi
 
 
 PPRICE=$(echo scale=2 \; \($CPUSPEED/3000\) \* 17|bc)
@@ -37,6 +42,7 @@ cat > spec.tex <<EOF
 \newcommand{\price}{$PRICE}
 \newcommand{\wireless}{$WIRELESS}
 \newcommand{\debianversion}{$DEBIAN_VERSION}
+\newcommand{\debiancode}{$DEBIAN_CODE}
 \newcommand{\kernelversion}{$KERNEL_VERSION}
 \newcommand{\accelerated}{$ACCELLERATED}
 \newcommand{\hyperthreading}{$HYPERTHREADING}
