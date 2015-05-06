@@ -7,7 +7,8 @@ BITS64=$(if (lscpu|grep "CPU op-mode"|grep 64) &>  /dev/null ; then echo "Ja"; e
 WIRELESS=$(if (iwconfig 2>&1|grep IEEE) &> /dev/null; then echo Ja; else echo Nee;fi)
 ACCELLERATED=$(if (lsmod|grep nvidia) &> /dev/null; then echo Ja; else echo Nee;fi)
 HYPERTHREADING=$(if [ 2 = $(lscpu|grep Thread|cut -d' ' -f7) ]; then echo Ja ; else echo Nee; fi)
-BURNER="CD"
+DRIVES=$(ls /dev/dvd* /dev/cd*) 
+BURNER=$(if (echo $DRIVES|grep dvdrw) &> /dev/null ; then echo "DVD"; else if (echo $DRIVES|grep cdrw) &> /dev/null; then echo "CD"; else echo "Geen"; fi; fi)
 HOSTNAME=$(hostname)
 DEBIAN_VERSION=$(cat /etc/debian_version)
 KERNEL_VERSION=$(uname -r)
@@ -39,6 +40,7 @@ cat > spec.tex <<EOF
 \newcommand{\corecount}{$CORECOUNT}
 \newcommand{\memsize}{$MEMSIZE}
 \newcommand{\bitssixtyfour}{$BITS64}
+\newcommand{\burner}{$BURNER}
 \newcommand{\price}{$PRICE}
 \newcommand{\wireless}{$WIRELESS}
 \newcommand{\debianversion}{$DEBIAN_VERSION}
