@@ -60,7 +60,7 @@ echo Hyperthreading price: $HYPERTHREADINGPRICE
 echo Wireless price: $WIRELESSPRICE
 echo Accelarated price: $ACCELLERATEDPRICE
 echo HDPrice: $HDPRICE
-echo Memprice: $MEMPRICE
+echo MemSize: $MEMSIZE Memprice: $MEMPRICE
 echo Burnerprice: $BURNERPRICE
 
 echo
