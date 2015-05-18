@@ -53,12 +53,15 @@ cat > spec.tex <<EOF
 \newcommand{\hostname}{$HOSTNAME}
 EOF
 
-#echo $PPRICE
-#echo $WIDTHPRICE
-#echo $MULTICOREPRICE
-#echo $HYPERTHREADINGPRICE
-#echo $WIRELESSPRICE
-#echo $ACCELLARATEDPRICE
-#echo $HDPRICE
-#echo $MEMPRICE
-#echo $BURNERPRICE
+echo Processor price: $PPRICE
+echo 64 bit price: $WIDTHPRICE
+echo Cores price: $MULTICOREPRICE
+echo Hyperthreading price: $HYPERTHREADINGPRICE
+echo Wireless price: $WIRELESSPRICE
+echo Accelarated price: $ACCELLERATEDPRICE
+echo HDPrice: $HDPRICE
+echo Memprice: $MEMPRICE
+echo Burnerprice: $BURNERPRICE
+
+echo
+echo Total: $PRICE
