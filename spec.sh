@@ -2,7 +2,7 @@
 DISKSIZE=$(dmesg |grep '\bsd'|grep GB|cut -d'(' -f2|cut -d' ' -f1)
 CPUSPEED=$(lscpu|grep MHz|cut -d' ' -f17)
 CORECOUNT=$(lscpu|grep Core|cut -d' ' -f7)
-MEMSIZE=$(free -m|grep Mem|cut -d' ' -f11)
+MEMSIZE=$(free -m|grep Mem|colrm 19|cut -d: -f2|sed 's/ //g')
 BITS64=$(if (lscpu|grep "CPU op-mode"|grep 64) &>  /dev/null ; then echo "Ja"; else echo "Nee"; fi)
 WIRELESS=$(if (iwconfig 2>&1|grep IEEE) &> /dev/null; then echo Ja; else echo Nee;fi)
 ACCELLERATED=$(if (lsmod|grep nvidia) &> /dev/null; then echo Ja; else echo Nee;fi)
