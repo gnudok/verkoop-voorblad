@@ -1,10 +1,11 @@
 #!/bin/bash
 DISKSIZE=$(dmesg |grep '\bsd'|grep GB|cut -d'(' -f2|cut -d' ' -f1)
 if lscpu|grep "max Mhz"; then 
-	CPUSPEED=$(lscpu|grep MHz|cut -d' ' -f17)
+	CPUSPEED=$(lscpu|grep "max MHz"|cut -d' ' -f17)
 else
 	CPUSPEED=$(lscpu|grep MHz|cut -d' ' -f17)
 fi
+CPUSPEED=$(echo scale=0 \; $CPUSPEED/1|bc)
 CORECOUNT=$(lscpu|grep Core|cut -d' ' -f7)
 MEMSIZE=$(free -m|grep Mem|colrm 19|cut -d: -f2|sed 's/ //g')
 BITS64=$(if (lscpu|grep "CPU op-mode"|grep 64) &>  /dev/null ; then echo "Ja"; else echo "Nee"; fi)
