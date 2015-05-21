@@ -1,6 +1,10 @@
 #!/bin/bash
 DISKSIZE=$(dmesg |grep '\bsd'|grep GB|cut -d'(' -f2|cut -d' ' -f1)
-CPUSPEED=$(lscpu|grep MHz|cut -d' ' -f17)
+if lscpu|grep "max Mhz"; then 
+	CPUSPEED=$(lscpu|grep MHz|cut -d' ' -f17)
+else
+	CPUSPEED=$(lscpu|grep MHz|cut -d' ' -f17)
+fi
 CORECOUNT=$(lscpu|grep Core|cut -d' ' -f7)
 MEMSIZE=$(free -m|grep Mem|colrm 19|cut -d: -f2|sed 's/ //g')
 BITS64=$(if (lscpu|grep "CPU op-mode"|grep 64) &>  /dev/null ; then echo "Ja"; else echo "Nee"; fi)
@@ -14,6 +18,7 @@ DEBIAN_VERSION=$(cat /etc/debian_version)
 KERNEL_VERSION=$(uname -r)
 CPUMODEL=$(grep "model name" /proc/cpuinfo |sort -u|cut -d: -f2|cut -d' ' -f2-)
 GRAPHICS=$(lspci|grep -i vga|cut -d: -f3|cut -d'(' -f1|cut -d' ' -f2-)
+GRAPHICS=$(echo $GRAPHICS|sed -e 's/Advanced Micro Devices, Inc.//')
 if [[ "$DEBIAN_VERSION" =~ ^8.* ]]; then
 	DEBIAN_CODE="Jessie";
 else
