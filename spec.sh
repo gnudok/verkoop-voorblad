@@ -1,4 +1,5 @@
 #!/bin/bash
+export LANG=en_US.UTF-8
 DISKSIZE=$(dmesg |grep '\bsd'|grep GB|cut -d'(' -f2|cut -d' ' -f1)
 if lscpu|grep "CPU max MHz"; then 
 	CPUSPEED=$(lscpu|grep "CPU max MHz"|cut -d':' -f2)
