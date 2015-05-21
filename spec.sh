@@ -1,7 +1,7 @@
 #!/bin/bash
 DISKSIZE=$(dmesg |grep '\bsd'|grep GB|cut -d'(' -f2|cut -d' ' -f1)
-if lscpu|grep "max Mhz"; then 
-	CPUSPEED=$(lscpu|grep "max MHz"|cut -d' ' -f17)
+if lscpu|grep "CPU max MHz"; then 
+	CPUSPEED=$(lscpu|grep "CPU max MHz"|cut -d':' -f2)
 else
 	CPUSPEED=$(lscpu|grep MHz|cut -d' ' -f17)
 fi
