@@ -21,6 +21,7 @@ KERNEL_VERSION=$(uname -r)
 CPUMODEL=$(grep "model name" /proc/cpuinfo |sort -u|cut -d: -f2|cut -d' ' -f2-)
 GRAPHICS=$(lspci|grep -i vga|cut -d: -f3|cut -d'(' -f1|cut -d' ' -f2-)
 GRAPHICS=$(echo $GRAPHICS|sed -e 's/Advanced Micro Devices, Inc.//')
+GRAPHICS=$(echo $GRAPHICS|sed -e 's/Intel Corporation/Intel/')
 if [[ "$DEBIAN_VERSION" =~ ^8.* ]]; then
 	DEBIAN_CODE="Jessie";
 else
