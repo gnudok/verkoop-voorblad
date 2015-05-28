@@ -31,42 +31,32 @@
 %\renewcommand{\familydefault}{\sfdefault}
 \input{spec}
 %\sffamily
-\centerline{\today}
-\vskip 0.5cm
 \begin{center}
-	\begin{tabular}{ |p{6cm}| p{6cm}| l| }
+	\begin{tabular}{ p{6cm} p{6cm}l }
 	\multicolumn{3}{c}{\includegraphics[width=0.25\textwidth]{pirateswirl}} \\
-	\multicolumn{3}{c}{\Huge\bf{Debian \debiancode{} \debianversion}}\\
-	\multicolumn{3}{c}{\LARGE{GNU/Linux}}\\
-	\multicolumn{3}{c}{\bf Geconfigureerd als DHCP-client}\\
-	\hline
-	Processor & \multicolumn{2}{l|}{\cpumodel{}}  \\
-	CPU snelheid & \cpuspeed{} & MHz \\
-	64-Bit & \bitssixtyfour{} & \\
-	Aantal cores & \corecount{} & \\
-	Hyperthreading & \hyperthreading{} & \\
-	Kernel versie & \kernelversion{} & \\
-	Disk grootte & \disksize{} & GB \\
-	Werkgeheugen & \memsize{} & MB \\
-	Wireless interface & \wireless & \\
-	Grafische kaart & \multicolumn{2}{l|}{\graphics{}}  \\
-	Grafisch versneld & \accelerated{} & \\
-	Brander &  \burner{} & \\
-	\hline
-	
-	{\vskip 1mm \large \bf Prijs \vskip 1mm}		& {\vskip 1mm \large \bf \euro{}{\price{}} \vskip 1mm} &  \\ 
-	\hline
-	\multicolumn{3}{|c|}{(voor alleen de computer, zonder toebehoren)}\\
-	\hline
-	\hline
-	\textbf{Rol} & \textbf{Login} & \textbf{Wachtwoord} \\
-	\hline
-	Gebruiker    & tux            & tux \\
-	Beheerder    & root					  & root \\
-	\hline
-	\multicolumn{3}{c}{Er wordt noch telefonische ondersteuning noch garantie gegeven bij deze computer.}\\
-	\multicolumn{3}{c}{Meer info op: \textbf{\texttt{http://www.juttersdok.nl/gnu}}}\\
-
+	\multicolumn{3}{c}{\Huge\bf{Debian \debiancode{} \debianversion}}       \\
+	\multicolumn{3}{c}{\LARGE{GNU/Linux}}\\[2em]
+	Processor          & \multicolumn{2}{l}{\cpumodel{}}                   \\
+	CPU-snelheid       & \multicolumn{2}{l}{\cpuspeed{} MHz}               \\
+	64-Bit             & \multicolumn{2}{l}{\bitssixtyfour{}}              \\
+	Aantal cores       & \multicolumn{2}{l}{\corecount{}}                  \\
+	Hyperthreading     & \multicolumn{2}{l}{\hyperthreading{}}             \\
+	Kernel versie      & \multicolumn{2}{l}{\kernelversion{}}              \\
+	Diskgrootte        & \multicolumn{2}{l}{\disksize{} GB}                \\
+  Netwerkadapter     & \multicolumn{2}{l}{Verkrijgt zelf een IP-adres}   \\
+	Werkgeheugen       & \multicolumn{2}{l}{\memsize{} MB}                 \\
+	Wireless interface & \multicolumn{2}{l}{\wireless{}}                   \\
+	Grafische kaart    & \multicolumn{2}{l}{\graphics{}}                   \\
+	Grafisch versneld  & \multicolumn{2}{l}{\accelerated{}}                \\
+	Brander            & \multicolumn{2}{l}{\burner{}}                     \\[2em]
+	{\LARGE \bf Prijs} & \multicolumn{2}{l}{\LARGE \bf \euro{}{\price{}*}} \\[1.5em] 
+	\textbf{Rol}       & \textbf{Login} & \textbf{Wachtwoord}               \\
+	Gebruiker          & tux            & tux                               \\
+	Beheerder          & root					  & root                              \\[2em]
+	\multicolumn{3}{l}{*Voor alleen de computer, zonder toebehoren.}        \\
+	\multicolumn{3}{l}{Bij deze computer geven wij geen garantie en geen telefonische ondersteuning.}\\
+  \multicolumn{3}{l}{Dit label is gedrukt op \today.}\\[1.5em]
+	\multicolumn{3}{l}{Meer weten? \textbf{\texttt{http://www.juttersdok.nl/gnu}}}\\
 \end{tabular}
 \end{center}
 \end{document}
