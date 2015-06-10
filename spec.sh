@@ -27,6 +27,8 @@ if [[ "$DEBIAN_VERSION" =~ ^8.* ]]; then
 else
 	DEBIAN_CODE="Wheezy";
 fi
+MACADDR=$(ifconfig eth0|grep HWaddr|colrm 1 38)
+IPADDR=$(ifconfig eth0|grep "inet addr"|colrm 34|colrm 1 20)
 
 
 PPRICE=$(echo scale=2 \; \($CPUSPEED/3000\) \* 17|bc)
@@ -59,6 +61,8 @@ cat > spec.tex <<EOF
 \newcommand{\cpumodel}{$CPUMODEL}
 \newcommand{\graphics}{$GRAPHICS}
 \newcommand{\hostname}{$HOSTNAME}
+\newcommand{\macaddr}{$MACADDR}
+\newcommand{\ipaddr}{$IPADDR}
 EOF
 
 echo Processor price: $PPRICE
