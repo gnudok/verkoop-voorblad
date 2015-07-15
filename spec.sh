@@ -49,6 +49,10 @@ MEMPRICE=$(echo scale=2 \; \($MEMSIZE/512\) \* 6|bc)
 
 PRICE=$(echo $PPRICE + $WIDTHPRICE + $MULTICOREPRICE + $HYPERTHREADINGPRICE + $WIRELESSPRICE + $ACCELLERATEDPRICE + $HDPRICE + $MEMPRICE + $BURNERPRICE|bc)
 
+if laptop-detect; then
+	PRICE=$(echo $PRICE \* 1.20|bc)
+fi
+
 cat > spec.tex <<EOF
 \newcommand{\disksize}{$DISKSIZE}
 \newcommand{\cpuspeed}{$CPUSPEED}
