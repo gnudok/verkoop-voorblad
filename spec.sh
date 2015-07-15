@@ -29,6 +29,11 @@ else
 fi
 MACADDR=$(ifconfig eth0|grep HWaddr|colrm 1 38)
 IPADDR=$(echo $(ifconfig eth0|grep "inet addr")|cut -d' ' -f2|cut -d: -f2)
+if lsblk|grep crypt; then 
+	DISK_ENCRYPTION=gnu
+else
+	DISK_ENCRYPTION=Geen
+fi
 
 
 PPRICE=$(echo scale=2 \; \($CPUSPEED/3000\) \* 17|bc)
@@ -63,6 +68,7 @@ cat > spec.tex <<EOF
 \newcommand{\hostname}{$HOSTNAME}
 \newcommand{\macaddr}{$MACADDR}
 \newcommand{\ipaddr}{$IPADDR}
+\newcommand{\diskpassword}{$DISK_ENCRYPTION}
 EOF
 
 echo Processor price: $PPRICE
